@@ -42,8 +42,8 @@ var parseFeed = function(data) {
 
         // Add to menu items array
         items.push({
-            title: title,
-            subtitle: wait
+            title: wait,
+            subtitle: title
         });
     }
 
