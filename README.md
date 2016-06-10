@@ -2,6 +2,8 @@
 
 Pebble Watchapp (with PebbleJS) for the [DVB Trinity project](https://github.com/iherzdresden/dvb-trinity).
 
+## [Download Watchapp](http://j.mp/dvbtrinity)
+
 ![DVB Trinity Pebble Watchapp Screenshots](img/dvb-trinity-pebble.png)
 
 Currently only departues for the Trinitatisplatz  station (route 6) are being displayed.
