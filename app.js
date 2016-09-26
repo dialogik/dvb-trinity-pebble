@@ -3,8 +3,7 @@ var ajax = require('ajax');
 var Vector2 = require('vector2');
 var Accel = require('ui/accel');
 
-// station id for Trinitatisplatz
-var station = '33000042';
+var station = 'Trinitatisplatz';
 
 // Initialize Accelerator
 Accel.init();
@@ -32,18 +31,14 @@ var parseFeed = function(data) {
     var items = [];
     for (var i in data) {
         // Always upper case the description string
-        var title = data[i].route + " " + data[i].direction;
-
-        // Get date/time substring
-        var wait = data[i].wait;
-        if(wait == 'null' || wait === null) {
-            wait = '';
-        }
+        var direction = data[i][1];
+        var route = data[i][0] + " " + direction;
+        var minutes = data[i][2] + " min";
 
         // Add to menu items array
         items.push({
-            title: wait,
-            subtitle: title
+            title: minutes,
+            subtitle: route
         });
     }
 
@@ -56,7 +51,7 @@ var resultsMenu = null;
 var fetchItems = function(station) {
     // Fetch data
     ajax({
-            url: 'https://dvb-trinity.herokuapp.com/api.php?station=' + station,
+            url: 'http://widgets.vvo-online.de/abfahrtsmonitor/Abfahrten.do?ort=Dresden&vz=0&hst=' + station,
             type: 'json'
         },
         function(data) {
